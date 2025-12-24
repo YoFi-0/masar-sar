@@ -99,7 +99,7 @@
     <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold flex items-center gap-2">
-                <img src="/masar-sar/logo.png" class="w-5 block"/>
+                <img src="/logo.png" class="w-5 block"/>
                 <span class="text-brand-black">مسار <span class="text-brand-darkYellow">سار</span></span>
             </a>
 
@@ -129,8 +129,8 @@
         </div>
     </nav>
 
-    <section id="home" class="relative h-screen min-h-[600px] hero-bg flex items-center justify-center pt-16">
-        <div class="container mx-auto px-6 text-center md:text-right relative z-10 flex flex-col md:flex-row items-center justify-between">
+    <section id="home" class="relative h-[120vh] md:h-screen min-h-[600px] hero-bg flex items-center justify-center pt-16">
+        <div class="container pt-20 md:pt-0  mx-auto px-6 text-center md:text-right relative z-10 flex flex-col md:flex-row items-center justify-between">
             
             <div class="md:w-1/2 text-white mb-10 md:mb-0">
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
@@ -140,10 +140,10 @@
                     نقدم لك أفضل خيارات تأجير السيارات بأسعار تنافسية وخدمة لا تضاهى. تواصل معنا عبر واتساب واحجز سيارتك في ثوانٍ.
                 </p>
                 <div class="flex gap-4 justify-center md:justify-start">
-                    <a href="#fleet" class="bg-brand-yellow hover:bg-brand-darkYellow text-brand-black font-bold py-3 px-8 rounded-full transition transform hover:scale-105 shadow-lg">
+                    <a href="#fleet" class="bg-brand-yellow text-xs md:text-base hover:bg-brand-darkYellow text-brand-black font-bold py-3 px-8 rounded-full transition transform hover:scale-105 shadow-lg">
                         تصفح السيارات
                     </a>
-                    <a href="https://wa.me/966505222254" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-black text-white font-bold py-3 px-8 rounded-full transition flex items-center gap-2">
+                    <a href="https://wa.me/966505222254" class="text-xs md:text-base bg-transparent border-2 border-white hover:bg-white hover:text-brand-black text-white font-bold py-3 px-8 rounded-full transition flex items-center gap-2">
                         <i data-lucide="message-circle" class="w-5 h-5"></i> تواصل معنا
                     </a>
                 </div>
@@ -273,7 +273,7 @@
                     <!-- دائرة خلفية صفراء -->
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] bg-white rounded-full shadow-2xl z-0"></div>
                     <!-- صورة السيارة (placeholder) -->
-                    <img src="/masar-sar/car.png" alt="سيارة" class="rotate-[-10deg] relative z-10 w-full drop-shadow-2xl hover:scale-105 transition duration-500">
+                    <img src="/car.png" alt="سيارة" class="rotate-[-10deg] relative z-10 w-full drop-shadow-2xl hover:scale-105 transition duration-500">
                 </div>
             </div>
         </div>
@@ -535,7 +535,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <a href="#" class="text-2xl font-bold flex items-center gap-2 mb-6">
-                        <img src="/masar-sar/logo.png" class="w-5"/>
+                        <img src="/logo.png" class="w-5"/>
                         <span class="text-white">مسار <span class="text-brand-yellow">سار</span></span>
                     </a>
                     <p class="text-gray-400 text-sm leading-relaxed mb-6">
@@ -626,7 +626,7 @@
         // Initial setup for frames
         const frameCount = 40;
         const currentFrame = index => (
-            `/masar-sar/ExtractedFrames_2025-12-23_20-52-38/i${index + 1}.jpeg`
+            `/ExtractedFrames_2025-12-23_20-52-38/i${index + 1}.jpeg`
         );
 
         const images = [];
@@ -716,8 +716,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
