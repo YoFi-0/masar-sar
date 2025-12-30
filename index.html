@@ -16,7 +16,6 @@
             font-family: 'Tajawal', sans-serif;
             scroll-behavior: smooth;
         }
-        /* تم إزالة hero-bg القديمة لأننا سنستخدم الكانفاس */
         
         .whatsapp-float {
             position: fixed;
@@ -31,7 +30,7 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-         /* Animation for Process Steps */
+        /* Animation for Process Steps */
         .step-card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -126,15 +125,12 @@
         </div>
     </nav>
 
-    <!-- 
-        حافظنا على min-h-screen لحل مشكلة المساحة
-    -->
     <section id="home" class="relative min-h-screen md:h-screen flex items-center justify-center pt-16 pb-10 md:pb-0 overflow-hidden">
         
-        <!-- خلفية الأنيميشن -->
+        <!-- خلفية الأنيميشن: تمت إزالة كلاس object-cover لحل مشكلة التمطيط -->
         <canvas 
             id="hero-lightpass" 
-            class="absolute top-0 left-0 w-full h-full object-cover z-0"
+            class="absolute top-0 left-0 w-full h-full z-0"
         ></canvas>
 
         <!-- طبقة تعتيم خفيفة لجعل النص مقروءاً فوق الصور -->
@@ -617,48 +613,69 @@
         });
 
         // -----------------------------------------------------------
-        // KEY CHANGE: Function to calculate "Cover" logic for Canvas
+        // دالة الرسم المحسنة لحل مشكلة التمطيط (Aspect Ratio Cover)
         // -----------------------------------------------------------
         function render() {
             const frameIndex = Math.floor(airpods.frame);
-            const currentImage = images[frameIndex];
+            // التأكد من أن الاندكس صحيح
+            const imgIndex = Math.min(frameIndex, images.length - 1); 
+            const currentImage = images[imgIndex];
             
-            if (currentImage && currentImage.complete) {
-                // Ensure canvas is clear
+            // نتأكد من تحميل الصورة وأن أبعادها الطبيعية متاحة
+            if (currentImage && currentImage.complete && currentImage.naturalWidth !== 0) {
+                // مسح الكانفاس
                 context.clearRect(0, 0, canvas.width, canvas.height);
 
-                var hRatio = canvas.width / currentImage.width;
-                var vRatio = canvas.height / currentImage.height;
-                var ratio = Math.max(hRatio, vRatio); // Use Cover everywhere
+                // 1. أبعاد الصورة الأصلية
+                const imgWidth = currentImage.naturalWidth;
+                const imgHeight = currentImage.naturalHeight;
+                
+                // 2. أبعاد الكانفاس الحالية
+                const canvasWidth = canvas.width;
+                const canvasHeight = canvas.height;
 
-                var centerShift_x = (canvas.width - currentImage.width * ratio) / 2;
-                var centerShift_y = (canvas.height - currentImage.height * ratio) / 2;
+                // 3. حساب النسبة الأكبر (لضمان تغطية الشاشة بالكامل - Cover)
+                const scale = Math.max(canvasWidth / imgWidth, canvasHeight / imgHeight);
 
+                // 4. الأبعاد الجديدة للصورة بعد التكبير
+                const newWidth = imgWidth * scale;
+                const newHeight = imgHeight * scale;
+
+                // 5. حساب الإزاحة لتوسيط الصورة (Center Alignment)
+                const offsetX = (canvasWidth - newWidth) / 1.5;
+                const offsetY = (canvasHeight - newHeight) / 1.5;
+
+                // 6. رسم الصورة بالأبعاد والإحداثيات المحسوبة
                 context.drawImage(
                     currentImage, 
-                    0, 0, currentImage.width, currentImage.height,
-                    centerShift_x, centerShift_y, currentImage.width * ratio, currentImage.height * ratio
+                    offsetX, offsetY, newWidth, newHeight
                 );
             }
         }
 
         // -----------------------------------------------------------
-        // KEY CHANGE: Dynamic Resizing Logic
+        // دالة تغيير الحجم المحسنة
         // -----------------------------------------------------------
         function resizeCanvas() {
-            // Set canvas internal dimensions to match the viewport dimensions
+            // تعيين أبعاد الكانفاس لتطابق نافذة المتصفح تماماً
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            render(); // Re-render immediately so the image doesn't disappear until scroll
+            
+            // إعادة الرسم فوراً لتجنب الوميض أو الاختفاء
+            render();
         }
 
         // Attach resize event
         window.addEventListener('resize', resizeCanvas);
         
-        // Initial setup
+        // Initial setup - ننتظر تحميل الصورة الأولى لضبط القياسات المبدئية
         images[0].onload = function() {
-            resizeCanvas(); // Set size and render first frame
+            resizeCanvas(); 
         };
+        // استدعاء احتياطي في حالة كانت الصورة محملة مسبقاً من الكاش
+        if (images[0].complete) {
+            resizeCanvas();
+        }
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
