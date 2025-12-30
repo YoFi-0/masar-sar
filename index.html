@@ -127,12 +127,9 @@
     </nav>
 
     <!-- 
-        تم تعديل هذا القسم:
-        1. إزالة كلاس .hero-bg
-        2. إضافة Canvas كخلفية
-        3. إضافة طبقة Overlay لضمان وضوح النص
+        حافظنا على min-h-screen لحل مشكلة المساحة
     -->
-    <section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center pt-16 overflow-hidden">
+    <section id="home" class="relative min-h-screen md:h-screen flex items-center justify-center pt-16 pb-10 md:pb-0 overflow-hidden">
         
         <!-- خلفية الأنيميشن -->
         <canvas 
@@ -491,143 +488,6 @@
         </div>
     </section>
 
-    <!-- تم إزالة سكشن الأنيميشن المنفصل لأنه دمج مع الهيرو -->
-
-    <section id="features" class="py-20 bg-white relative z-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-brand-darkYellow font-bold text-sm tracking-wider">لماذا نحن؟</span>
-                <h2 class="text-4xl font-bold text-brand-black mt-2">تجربة تأجير لا تُنسى</h2>
-                <div class="w-20 h-1 bg-brand-yellow mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="text-center p-8 rounded-2xl hover:bg-yellow-50 transition border border-gray-100 hover:border-brand-yellow group">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-yellow transition">
-                        <i data-lucide="shield-check" class="w-8 h-8 text-brand-darkYellow group-hover:text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">أمن وتأمين</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        جميع سياراتنا مؤمنة بالكامل لتستمتع برحلتك دون أي قلق. سلامتك هي أولويتنا القصوى.
-                    </p>
-                </div>
-
-                <div class="text-center p-8 rounded-2xl hover:bg-yellow-50 transition border border-gray-100 hover:border-brand-yellow group">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-yellow transition">
-                        <i data-lucide="message-circle" class="w-8 h-8 text-brand-darkYellow group-hover:text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">حجز فوري بالواتساب</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        لا داعي لملء نماذج طويلة. تواصل معنا مباشرة عبر واتساب وسيتم تأكيد حجزك في دقائق.
-                    </p>
-                </div>
-
-                <div class="text-center p-8 rounded-2xl hover:bg-yellow-50 transition border border-gray-100 hover:border-brand-yellow group">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-yellow transition">
-                        <i data-lucide="wallet" class="w-8 h-8 text-brand-darkYellow group-hover:text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">أفضل الأسعار</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        نضمن لك الحصول على أفضل قيمة مقابل المال مع باقات مرنة يومية، أسبوعية وشهرية.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="py-16 bg-brand-black text-white relative overflow-hidden z-20">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-        
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">هل أنت مستعد للانطلاق؟</h2>
-            <p class="text-gray-400 mb-8 max-w-2xl mx-auto">لا تضيع وقتك في الانتظار. احجز سيارتك المثالية الآن عبر واتساب واستمتع بقيادة مريحة وآمنة.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/966126999910" target="_blank" class="bg-brand-yellow text-brand-black font-bold py-3 px-8 rounded-lg hover:bg-brand-darkYellow transition flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> احجز عبر واتساب
-                </a>
-                <a href="tel:+966126999910" class="border border-gray-600 hover:border-white text-white font-bold py-3 px-8 rounded-lg transition flex items-center justify-center gap-2">
-                    <i data-lucide="phone" class="w-4 h-4"></i> اتصل بنا
-                </a>
-            </div>
-        </div>
-    </section>
-    
-
-    <section id="faq" class="py-20 bg-white relative z-20">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="text-center mb-12">
-                <span class="text-brand-darkYellow font-bold text-sm tracking-wider">لديك استفسار؟</span>
-                <h2 class="text-3xl font-bold text-brand-black mt-2">الأسئلة الشائعة</h2>
-                <div class="w-16 h-1 bg-brand-yellow mx-auto mt-4 rounded-full"></div>
-            </div>
-
-            <div class="space-y-4">
-                <div class="faq-item bg-gray-50 border border-gray-100 rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="p-6 flex justify-between items-center">
-                        <h3 class="font-bold text-lg text-brand-black">ما هي المستندات المطلوبة لاستئجار سيارة؟</h3>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-400"></i>
-                    </div>
-                    <div class="faq-answer px-6 bg-white">
-                        <p class="text-gray-600 pb-6 leading-relaxed">
-                            يتطلب الاستئجار توفر هوية وطنية أو إقامة سارية المفعول، بالإضافة إلى رخصة قيادة سارية. بالنسبة للزوار، قد يتطلب الأمر جواز سفر ورخصة قيادة دولية حسب الأنظمة.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item bg-gray-50 border border-gray-100 rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="p-6 flex justify-between items-center">
-                        <h3 class="font-bold text-lg text-brand-black">هل يشمل السعر التأمين؟</h3>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-400"></i>
-                    </div>
-                    <div class="faq-answer px-6 bg-white">
-                        <p class="text-gray-600 pb-6 leading-relaxed">
-                            نعم، جميع الأسعار المعروضة تشمل التأمين الأساسي (ضد الغير). يمكنك طلب ترقية التأمين إلى "تأمين شامل" عند الحجز لتغطية كاملة مقابل رسوم إضافية بسيطة.
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="faq-item bg-gray-50 border border-gray-100 rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="p-6 flex justify-between items-center">
-                        <h3 class="font-bold text-lg text-brand-black">ما هي طرق الدفع المتاحة؟</h3>
-                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-400"></i>
-                    </div>
-                    <div class="faq-answer px-6 bg-white">
-                        <p class="text-gray-600 pb-6 leading-relaxed">
-                            نقبل الدفع عبر البطاقات الائتمانية (فيزا، ماستركارد)، بطاقات مدى، الدفع النقدي في الفرع، بالإضافة إلى التحويل البنكي للحجوزات المؤكدة مسبقاً.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    
-
-     <section id="location" class="py-20 bg-white relative z-20">
-         <div class="container mx-auto px-6">
-             <div class="text-center mb-12">
-                <span class="text-brand-darkYellow font-bold text-sm tracking-wider">موقعنا</span>
-                <h2 class="text-3xl font-bold text-brand-black mt-2">تفضل بزيارتنا أحد فروعنا</h2>
-                <div class="w-16 h-1 bg-brand-yellow mx-auto mt-4 rounded-full"></div>
-            </div>
-            
-            <div class="w-full">
-                <h2 class="text-2xl font-bold text-brand-black text-center mb-2">جدة, ابحر الشمالية, الشراع</h2>
-                <div class="w-full rounded-2xl overflow-hidden shadow-xl border-2 border-gray-100 relative">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13065.137306309916!2d39.105966672709165!3d21.780749445497257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c163bdb9781289%3A0x4c42e64309c8d413!2z2YXYs9in2LEg2LPYp9ixINmE2KrYo9is2YrYsSDYp9mE2LPZitin2LHYp9iq!5e0!3m2!1sar!2ssa!4v1766497748812!5m2!1sar!2ssa" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                <h2 class="text-2xl font-bold text-brand-black text-center mt-20 mb-2">جدة, ابحر الشمالية, الفردوس</h2>
-                <div class="w-full rounded-2xl overflow-hidden shadow-xl border-2 border-gray-100 relative">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37341.51390423241!2d39.112248380245696!3d21.79002124144635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c16365f113f3b5%3A0xdecb00636ed86464!2z2YXYs9in2LEg2LPYp9ixINmE2KrYp9is2YrYsSDYp9mE2LPZitin2LHYp9iq!5e0!3m2!1sen!2ssa!4v1767007962492!5m2!1sen!2ssa" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
     <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 border-t border-gray-800 relative z-20">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -748,7 +608,7 @@
             scrollTrigger: {
                 trigger: "#home", // تم تغيير الهدف إلى قسم الهيرو
                 start: "top top", // يبدأ عندما يكون أعلى القسم في أعلى الشاشة
-                end: "+=2000", // مدة التمرير لتشغيل الأنيميشن
+                end: "+=500", // مدة التمرير لتشغيل الأنيميشن
                 pin: true, // تثبيت القسم أثناء التمرير
                 scrub: 1, // نعومة التمرير
                 markers: false
@@ -767,10 +627,9 @@
                 // Ensure canvas is clear
                 context.clearRect(0, 0, canvas.width, canvas.height);
 
-                // Math for object-fit: cover
                 var hRatio = canvas.width / currentImage.width;
                 var vRatio = canvas.height / currentImage.height;
-                var ratio = Math.max(hRatio, vRatio); // The 'max' here creates the cover effect
+                var ratio = Math.max(hRatio, vRatio); // Use Cover everywhere
 
                 var centerShift_x = (canvas.width - currentImage.width * ratio) / 2;
                 var centerShift_y = (canvas.height - currentImage.height * ratio) / 2;
