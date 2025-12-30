@@ -16,11 +16,8 @@
             font-family: 'Tajawal', sans-serif;
             scroll-behavior: smooth;
         }
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-        }
+        /* تم إزالة hero-bg القديمة لأننا سنستخدم الكانفاس */
+        
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -129,8 +126,24 @@
         </div>
     </nav>
 
-    <section id="home" class="relative h-[120vh] md:h-screen min-h-[600px] hero-bg flex items-center justify-center pt-16">
-        <div class="container pt-20 md:pt-0  mx-auto px-6 text-center md:text-right relative z-10 flex flex-col md:flex-row items-center justify-between">
+    <!-- 
+        تم تعديل هذا القسم:
+        1. إزالة كلاس .hero-bg
+        2. إضافة Canvas كخلفية
+        3. إضافة طبقة Overlay لضمان وضوح النص
+    -->
+    <section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center pt-16 overflow-hidden">
+        
+        <!-- خلفية الأنيميشن -->
+        <canvas 
+            id="hero-lightpass" 
+            class="absolute top-0 left-0 w-full h-full object-cover z-0"
+        ></canvas>
+
+        <!-- طبقة تعتيم خفيفة لجعل النص مقروءاً فوق الصور -->
+        <div class="absolute top-0 left-0 w-full h-full bg-black/60 z-0"></div>
+
+        <div class="container pt-20 md:pt-0  mx-auto px-6 text-center md:text-right relative z-10 flex flex-col md:flex-row items-center justify-between h-full">
             
             <div class="md:w-1/2 text-white mb-10 md:mb-0">
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
@@ -149,7 +162,7 @@
                 </div>
             </div>
 
-            <div id="book" class="md:w-1/3 w-full bg-white p-8 rounded-2xl shadow-2xl transform translate-y-0 md:translate-y-10 text-center border-4 border-brand-yellow relative overflow-hidden">
+            <div id="book" class="md:w-1/3 w-full bg-white p-8 rounded-2xl shadow-2xl transform translate-y-0 text-center border-4 border-brand-yellow relative overflow-hidden">
                 
                 <h3 class="text-3xl font-extrabold mb-2 text-brand-black">عرض الافتتاح!</h3>
                 <p class="text-gray-500 mb-6">احتفل معنا بانطلاق خدماتنا</p>
@@ -171,7 +184,7 @@
         </div>
     </section>
 
-    <div class="bg-gray-100 py-6 border-b">
+    <div class="bg-gray-100 py-6 border-b relative z-20">
         <div class="container mx-auto px-6 flex justify-around items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500 flex-wrap gap-4">
             <span class="text-2xl font-bold text-gray-400">SUZUKI</span>
             <span class="text-2xl font-bold text-gray-400">TOYOTA</span>
@@ -180,7 +193,7 @@
         </div>
     </div>
 
-    <section id="how-it-works" class="py-24 bg-brand-black text-white relative overflow-hidden">
+    <section id="how-it-works" class="py-24 bg-brand-black text-white relative overflow-hidden z-20">
         <div class="absolute top-0 left-0 w-64 h-64 bg-gray-800 rounded-full mix-blend-overlay filter blur-3xl opacity-20"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-yellow rounded-full mix-blend-overlay filter blur-3xl opacity-5"></div>
 
@@ -241,7 +254,8 @@
         </div>
     </section>
 
-    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-yellow/10">
+    <!-- تم تغيير ID لتجنب التكرار -->
+    <section id="intro" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-yellow/10 z-20">
         <!-- شكل زخرفي خلفي -->
         <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-yellow skew-x-12 translate-x-20 z-0 opacity-80 hidden lg:block"></div>
         
@@ -278,7 +292,7 @@
         </div>
     </section>
 
-    <section id="fleet" class="py-20 bg-gray-50">
+    <section id="fleet" class="py-20 bg-gray-50 z-20 relative">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                 <div>
@@ -477,17 +491,9 @@
         </div>
     </section>
 
-    <section 
-        id="scroll-section"
-        class="h-screen bg-black text-white font-sans relative overflow-hidden" 
-    >
-        <canvas 
-            id="hero-lightpass" 
-            class="absolute top-0 left-0 w-full h-full z-10 block"
-        ></canvas>
-    </section>
+    <!-- تم إزالة سكشن الأنيميشن المنفصل لأنه دمج مع الهيرو -->
 
-    <section id="features" class="py-20 bg-white">
+    <section id="features" class="py-20 bg-white relative z-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-brand-darkYellow font-bold text-sm tracking-wider">لماذا نحن؟</span>
@@ -530,7 +536,7 @@
     </section>
 
 
-    <section class="py-16 bg-brand-black text-white relative overflow-hidden">
+    <section class="py-16 bg-brand-black text-white relative overflow-hidden z-20">
         <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
         
@@ -549,7 +555,7 @@
     </section>
     
 
-    <section id="faq" class="py-20 bg-white">
+    <section id="faq" class="py-20 bg-white relative z-20">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-12">
                 <span class="text-brand-darkYellow font-bold text-sm tracking-wider">لديك استفسار؟</span>
@@ -600,7 +606,7 @@
 
     
 
-     <section id="location" class="py-20 bg-white">
+     <section id="location" class="py-20 bg-white relative z-20">
          <div class="container mx-auto px-6">
              <div class="text-center mb-12">
                 <span class="text-brand-darkYellow font-bold text-sm tracking-wider">موقعنا</span>
@@ -622,7 +628,7 @@
         </div>
     </section>
 
-    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 border-t border-gray-800">
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 border-t border-gray-800 relative z-20">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
@@ -740,11 +746,11 @@
             snap: "frame",
             ease: "none",
             scrollTrigger: {
-                trigger: "#scroll-section",
-                start: "top top",
-                end: "+=2000",
-                pin: true,
-                scrub: 1,
+                trigger: "#home", // تم تغيير الهدف إلى قسم الهيرو
+                start: "top top", // يبدأ عندما يكون أعلى القسم في أعلى الشاشة
+                end: "+=2000", // مدة التمرير لتشغيل الأنيميشن
+                pin: true, // تثبيت القسم أثناء التمرير
+                scrub: 1, // نعومة التمرير
                 markers: false
             },
             onUpdate: render
@@ -810,5 +816,3 @@
 </body>
 
 </html>
-
-
